@@ -2,7 +2,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class RcipeBook {
-    public static Set<Recipe> recipes = new HashSet<>();
+    private static Set<Recipe> recipes = new HashSet<>();
 
     public static void addRecipe(Recipe recipe) {
         for (var recipeInCollection : recipes) {
