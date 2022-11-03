@@ -1,19 +1,27 @@
+import java.math.BigDecimal;
 import java.util.*;
 
 public class Recipe {
-     private final String nameOfRecipe;
-     private int totalCost;
-     private final Set<Product> products =  new HashSet<>();
+    private final String nameOfRecipe;
+    private int totalCost;
+    private final Map<Product, Integer> products = new HashMap<>();
 
     public Recipe(String nameOfProducts, int totalCost) {
         this.nameOfRecipe = nameOfProducts;
         this.totalCost = totalCost;
     }
+
     public void addProduct(Product product, int quantity) {
-        if (products.contains(product)) {
-            throw new RuntimeException("Продукт уже добавлен");
-        }
-        totalCost = (int) (totalCost + product.getPrice() * quantity);
+        products.put(product, quantity);
+        totalCost = totalCost + product.getPrice() * quantity;
+    }
+
+    public int costRecipe() {
+        int sum = 0;
+        for(Product key : products.keySet()){
+            sum += products.get(key) * key.getPrice();
+    }
+        return sum;
     }
 
     public String getNameOfRecipe() {

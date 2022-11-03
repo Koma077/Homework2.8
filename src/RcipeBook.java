@@ -6,7 +6,7 @@ public class RcipeBook {
 
     public static void addRecipe(Recipe recipe) {
         for (var recipeInCollection : recipes) {
-            if (recipeInCollection.getNameOfRecipe().equals(recipe.getNameOfRecipe())) {
+            if (recipeInCollection.equals(recipe)) {
                 throw new RuntimeException("Такой рецепт уже есть ");
             }
             recipes.add(recipe);

@@ -2,10 +2,10 @@ import java.util.Objects;
 
 public class Product {
     private final String name;
-    private final float price;
+    private final int price;
     private final int count;
 
-    public Product(int count, String name, float price) {
+    public Product(int count, String name, int price) {
         if (name != null && name.isBlank() && price > 0 && count > 0) {
             this.name = name;
             this.price = price;
@@ -20,7 +20,7 @@ public class Product {
         return name;
     }
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
