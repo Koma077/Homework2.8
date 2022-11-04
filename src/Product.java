@@ -10,7 +10,6 @@ public class Product {
             this.name = name;
             this.price = price;
             this.count = count;
-            ProductList.addProductList(this);
         } else {
             throw new RuntimeException("Заполните карточку товара полностью");
         }

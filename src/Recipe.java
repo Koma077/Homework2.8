@@ -1,5 +1,6 @@
-import java.math.BigDecimal;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class Recipe {
     private final String nameOfRecipe;
@@ -9,6 +10,7 @@ public class Recipe {
     public Recipe(String nameOfProducts, int totalCost) {
         this.nameOfRecipe = nameOfProducts;
         this.totalCost = totalCost;
+
     }
 
     public void addProduct(Product product, int quantity) {
@@ -16,13 +18,17 @@ public class Recipe {
         totalCost = totalCost + product.getPrice() * quantity;
     }
 
-    public int costRecipe() {
+    public int costRecipe(Integer number) {
         int sum = 0;
-        for(Product key : products.keySet()){
-            sum += products.get(key) * key.getPrice();
+        if(number != null){
+            for (Product key : products.keySet()) {
+                sum += products.get(key) * key.getPrice();
+            }
+            return sum;
+        }
+        return 1;
     }
-        return sum;
-    }
+
 
     public String getNameOfRecipe() {
         return nameOfRecipe;
@@ -47,7 +53,7 @@ public class Recipe {
 
     @Override
     public String toString() {
-        return  nameOfRecipe;
+        return nameOfRecipe;
 
     }
 }
